@@ -1,5 +1,14 @@
 {
+  "name": "portfolio-vuepress",
+  "scripts": {
+    "build": "vuepress build portfolio",
+    "develop": "vuepress dev portfolio"
+  },
+  "author": "Nichlas W. Andersen",
+  "license": "MIT",
   "dependencies": {
-    "http-server": "^14.1.1"
+    "vue-template-compiler": "^2.6.12",
+    "vuepress": "^1.5.4",
+    "webpack-dev-middleware": "3.7.2"
   }
 }
