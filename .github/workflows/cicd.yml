@@ -16,11 +16,10 @@ jobs:
           persist-credentials: false
 
       # 安装node.js
-      - name: NVM Setup Node
-        uses: irby/setup-node-nvm@v1.0.0
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: "12.22.12"
-          node-mirror: "http://registry.npm.taobao.org/"
           
 
       # 下载依赖、打包项目
