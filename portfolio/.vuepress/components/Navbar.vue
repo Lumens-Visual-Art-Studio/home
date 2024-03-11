@@ -1,7 +1,6 @@
 <template>
-  <header class="header" :style="sticky && navStyle">
-
-    <nav v-if="navLinks" class="navigation left desktop-nav">
+  <header class="header" :style="sticky && navStyle" v-show="isVisilbe">
+    <nav v-if="navLinks" class="navigation left desktop-nav" >
       <ul>
         <router-link v-for=" nav  in  navLinks " :key="nav.text" v-if="nav.position === 'left' && !nav.external"
           tag="li" :to="nav.link" active-class="active" v-text="nav.text" exact />
@@ -11,14 +10,14 @@
       </ul>
     </nav>
 
-    <div class="brand">
+    <div class="brand" v-show="isVisilbe">
       <router-link to="/">
         <div v-if="logo" class="logo" :style="{ backgroundImage: `url(${logo})` }" :title="$site.title" />
         <span v-else>{{ $site.title }}</span>
       </router-link>
     </div>
 
-    <nav v-if="navLinks" class="navigation right desktop-nav">
+    <nav v-if="navLinks" class="navigation right desktop-nav" v-show="isVisilbe">
       <ul>
         <router-link v-for=" nav  in  navLinks " :key="nav.text" v-if="nav.position === 'right' && !nav.external"
           tag="li" :to="nav.link" active-class="active" v-text="nav.text" exact />
@@ -41,7 +40,6 @@
         <div class="mobile-nav-close" @click="toggleMobileNav" />
       </nav>
     </div>
-
   </header>
 </template>
 
@@ -68,7 +66,8 @@ export default {
   data() {
     return {
       mobileNavActive: false,
-      navOpacity: 1.0
+      navOpacity: 1.0,
+      isVisilbe: true,
     }
   },
   computed: {
@@ -81,7 +80,7 @@ export default {
         top: '0',
         left: '0',
         width: '100%',
-        opacity: this.navOpacity
+        opacity: this.navOpacity,
       };
     },
 
@@ -94,14 +93,29 @@ export default {
       const threshold = 50; // 设置滑动多少像素后导航栏开始消失
       const scrollTop = window.scrollY; // 获取当前滚动位置
       const disappear = 200
-      if (scrollTop < threshold)
+      if (scrollTop < threshold) {
         this.navOpacity = 1;
-      else if (scrollTop < disappear)
+      }
+      else if (scrollTop < disappear) {
         this.navOpacity = (disappear - scrollTop) / (disappear - threshold);
-      else
+      }
+      else {
         this.navOpacity = 0;
+      }
       // console.log(this.navOpacity);
     },
+  },
+  watch: {
+    "navOpacity": {
+      handler(newVal, oldVal){
+        console.log(newVal);
+        if (newVal == 0)
+          this.isVisilbe = false;    
+        else
+          this.isVisilbe = true;
+
+      }
+    }
   }
 }
 </script>
