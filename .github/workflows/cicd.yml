@@ -25,6 +25,7 @@ jobs:
       # 下载依赖、打包项目
       - name: Install and Build
         run: |
+          npm cache clean -f
           npm i
           vuepress build portfolio
 
