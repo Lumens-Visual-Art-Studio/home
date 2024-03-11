@@ -8,6 +8,6 @@
   "license": "MIT",
   "dependencies": {
     "vue-template-compiler": "^2.6.2",
-    "vuepress": "^1.5.4"
+    "vuepress": "^1.9.10"
   }
 }

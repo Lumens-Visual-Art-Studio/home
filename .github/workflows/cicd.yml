@@ -24,7 +24,9 @@ jobs:
       # 下载依赖、打包项目
       - name: Install Dependancy and build
         run: |
-          bash ./build.sh
+          npm ci
+          echo $(ls)
+          vuepress build portfolio
 
       # 部署
       - name: Deploy
