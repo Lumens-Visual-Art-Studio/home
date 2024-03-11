@@ -20,14 +20,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "12.22.12"
-          
 
       # 下载依赖、打包项目
-      - name: Install and Build
-        run: |
-          npm cache clean -f
-          npm i vuepress@1.5.4
-          vuepress build portfolio
+      - name: Install Dependancy
+        run: npm i vuepress@1.5.4
+
+      - name: Build
+        run: vuepress build portfolio
 
       # 部署
       - name: Deploy
