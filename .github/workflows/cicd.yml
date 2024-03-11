@@ -25,7 +25,7 @@ jobs:
       # 下载依赖、打包项目
       - name: Install and Build
         run: |
-          npm i
+          npm i package.json
           vuepress build portfolio
 
       # 部署
