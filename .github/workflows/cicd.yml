@@ -26,7 +26,7 @@ jobs:
         run: |
           npm ci
           echo $(ls)
-          vuepress build portfolio
+          /usr/local/bin/vuepress build portfolio
 
       # 部署
       - name: Deploy
