@@ -24,9 +24,8 @@ jobs:
       # 下载依赖、打包项目
       - name: Install Dependancy
         run: |
-          npm i vuepress@1.5.4
+          npm i -g vuepress@1.5.4
           
-
       - name: Build
         run: |
           echo $(node -v)
