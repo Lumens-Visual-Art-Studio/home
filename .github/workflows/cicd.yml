@@ -25,6 +25,7 @@ jobs:
       - name: Install Dependancy
         run: |
           npm i -g vuepress@1.5.4
+          npm i -g vue-template-compiler@2.6.2
           
       - name: Build
         run: |
