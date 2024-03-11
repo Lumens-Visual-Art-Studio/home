@@ -22,16 +22,13 @@ jobs:
           node-version: "12.22.12"
 
       # 下载依赖、打包项目
-      - name: Install Dependancy
+      - name: Install Dependancy and build
         run: |
-          npm i -g vuepress@1.5.4
+          npm i -g vuepress@1.9.10
           npm i -g vue-template-compiler@2.6.2
-          
-      - name: Build
-        run: |
-          echo $(node -v)
-          echo $(npm -v)
           vuepress build portfolio
+
+          
 
       # 部署
       - name: Deploy
