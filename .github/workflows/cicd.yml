@@ -26,7 +26,7 @@ jobs:
       - name: Install and Build
         run: |
           npm cache clean -f
-          npm i
+          npm i vuepress@1.5.4
           vuepress build portfolio
 
       # 部署
